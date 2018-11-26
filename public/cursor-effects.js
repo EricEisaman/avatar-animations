@@ -7,9 +7,13 @@ function toggleCursor(){
  }
 }
 
-if(window.config.showCursor){
-  toggleCursor();
-}
+setTimeout(()=>{
+    if(window.config.showCursor){
+    toggleCursor();
+  }
+},2000);
+
+
 
 document.addEventListener('keydown',e=>{
   if(e.code == window.config.keys.toggleCursor && window.gameHasBegun){

@@ -59,6 +59,7 @@ module.exports = (io)=>{
              changedBodies = [];
            }
            socket.broadcast.emit('remove-player',socket.id);
+           socket.emit('failed-socket');
            db.serialize(function() {
                  db.run("UPDATE Users SET isPlaying = 0 WHERE id = ?",socket.dbid);
                });

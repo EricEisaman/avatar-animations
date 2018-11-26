@@ -47,6 +47,7 @@ $('.login-button').click((e)=>{
     name:$('#un').val(),
     pw:$('#pw').val()
   });
+  window.player.name = $('#un').val();
   $('.login').slideUp(500);
   $('#un').val('');
   $('#pw').val('');
