@@ -138,6 +138,9 @@ window.socket.on('login-results',data=>{
 window.socket.on('update-bodies', bodiesData=>{
   if(window.gameHasBegun)window.updateBodies(bodiesData);
 });
+window.socket.on('failed-socket',()=>{
+  window.location.reload();
+});
 
 // Helper functions
 // Compare two items
