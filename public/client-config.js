@@ -118,15 +118,14 @@ window.config = {
     ]
  },
  collectibles:{
-   threshold:3,
    itemDefs:[
-     {type:'doge_coin',scale:'0.4 0.4 0.4',rotation:'0 0 0',
+     {type:'doge_coin',scale:'0.4 0.4 0.4',rotation:'0 0 0',threshold:3,
       positions:['25 0 -25','-25 0 -25','20 0 -30','-20 0 -30','15 0 -35','-15 0 -35','10 0 -40','-10 0 -40','0 0 -4'],
       url:'https://cdn.glitch.com/14597f75-728f-4d7e-bbd2-202118ee70e0%2Fdoge_coin.glb?1542836614183',
       objectSound:{url:'https://cdn.glitch.com/14597f75-728f-4d7e-bbd2-202118ee70e0%2Fdog_whine.mp3?1542837893113',volume:0.1},
       collectSound:{url:'https://cdn.glitch.com/14597f75-728f-4d7e-bbd2-202118ee70e0%2Fcollect_bark_.mp3?1542837713162',volume:1},
       collectParticles:{type:'magic',color:'#fff',scale:4},
-      callback:'addPoint',animation:'rotY'
+      callback:{name:'addPoints',params:{amount:100}},animation:'rotY'
      }  
    ]
  },

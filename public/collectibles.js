@@ -33,7 +33,12 @@ window.setCollectibles = ()=>{
         col.appendChild(s2);
       }  
       if(typeof def.callback != 'undefined'){
-        col.setAttribute('callback',def.callback)
+        col.callback = def.callback;
+      }
+      if(typeof def.threshold != 'undefined'){
+        col.threshold = def.threshold;
+      }else{
+        col.threshold = 1;
       }
       if(typeof def.animation != 'undefined'){
         switch(def.animation){
@@ -88,9 +93,9 @@ window.socket.on('update-collectible',d=>{
       let name = window.otherPlayers[d.collector].name;
       console.log(`${name} collected a ${window.collectibles[d.index].getAttribute('type')}!`);
     }
-    let callback = window.collectibles[d.index].getAttribute('callback');
-    if(callback){
-      window[callback](d.collector);
+    let callback = window.collectibles[d.index].callback;
+    if(callback && callback.name){
+      window[callback.name](d.collector,callback.params);
     }
   }
 });
@@ -119,7 +124,7 @@ function collectionMade(){
   let result = false
   window.collectibles.forEach( (c,index)=>{
     if(!c.getAttribute('visible'))return;
-    if(window.player.object3D.position.distanceTo(c.object3D.position) < window.config.collectibles.threshold){
+    if(window.player.object3D.position.distanceTo(c.object3D.position) < c.threshold){
       result = {index:index}
     }
   });
