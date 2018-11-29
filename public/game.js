@@ -79,13 +79,13 @@ let bodyHasSound = function(name){
 /
 /*********************************************/
 
-window.addPoint = function(playerId){
+window.addPoints = function(playerId,params){
   if(window.socket.id == playerId){
    if(!player.score)player.score = 0;
-   console.log(`Your Score: ${++player.score}`);
+   console.log(`Your Score: ${player.score+=params.amount}`);
   }else{
    if(!window.otherPlayers[playerId].score)window.otherPlayers[playerId].score = 0;
-   console.log(`${window.otherPlayers[playerId].name}'s Score: ${++window.otherPlayers[playerId].score}`);
+   console.log(`${window.otherPlayers[playerId].name}'s Score: ${window.otherPlayers[playerId].score+=params.amount}`);
   }
   window.setReadout('scoreboard',stringFromRankedPlayers(sortScores()));
 }
