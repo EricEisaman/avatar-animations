@@ -114,8 +114,10 @@ document.querySelector('a-scene').addEventListener('loaded', function () {
           op.setAttribute('position',o[key].position);
           op.setAttribute('rotation',o[key].rotation);
           op.model.setAttribute('gltf-model',`url(${c.url})`);
+          op.model.setAttribute('animation-mixer',`clip:${c.animations.idle}`);
           op.model.setAttribute('scale',`${c.scale} ${c.scale} ${c.scale}`);
-          op.msg.setAttribute('text',`color:${c.msg.color}`)
+          op.msg.setAttribute('text',`color:${c.msg.color}`);
+          op.msg.setAttribute('position',`${c.msg.offset}`);
           op.thruster.setAttribute('visible',o[key].thrust);
         }
       }
