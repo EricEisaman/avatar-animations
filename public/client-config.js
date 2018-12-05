@@ -19,7 +19,7 @@ window.config = {
       scale:0.62, yOffset:-1.3,
       animations:{idle:"Dragon_Flying"},
       msg:{color: 'orange',offset: '0 2 -0.51'},
-      thruster:{innerColor: "orange",outerColor: "white"}
+      thruster:{innerColor: "red",outerColor: "white"}
     },
     {
       url:"https://cdn.glitch.com/d9ff495e-24db-4a3f-b88d-05ddd4e02632%2Fdragon_blue.glb?1543070759125",
